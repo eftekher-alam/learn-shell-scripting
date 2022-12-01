@@ -9,4 +9,12 @@ do
     WT[ ${#WT[@]} ]=$(( ${WT[$i]} + ${BT[$i]} )) 
 done
 
-echo ${WT[@]}
+echo "Waiting time : ${WT[@]}"
+
+avg=0
+for x in ${WT[@]}
+do
+    avg=$(( $avg + $x))
+done
+avg=$(( $avg / ${#WT[@]} ))
+echo "Average waiting time : $avg"
